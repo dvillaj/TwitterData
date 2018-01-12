@@ -1,8 +1,8 @@
 import tweepy
 import codecs
 import json
-
 from secret import consumer_key, consumer_secret, access_token, access_token_secret
+
 
 def get_auth():
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -12,25 +12,23 @@ def get_auth():
 
 class MyStreamListener(tweepy.StreamListener):
 
+    def on_status(self, status):
+        # When a tweet is published it arrives here.
+        print(status.text.encode("ascii", errors='replace'))  # Console output may not be UTF-8
+        print("-"*10)
+
+            # Append to file
+        with codecs.open("tweets.txt", "a", "utf-8") as myfile:
+            myfile.write(status.text)
+
     def on_data(self, data):
         try:
             decoded = json.loads(data)
             print(decoded['text'])
-
-            # Append to file
-            with codecs.open("tweets_json.txt", "a", "utf-8") as myfile:
-                myfile.write(data)
-                myfile.write("\n")
-
         except Exception as e:
             print("ERROR: {}".format(e))
         finally:
             return True  # Keep listening
-
-    def on_error(self, status): 
-        print("Error %i" % status) 
-
-
 
 if __name__ == '__main__':
     print("===== My Application =====")
