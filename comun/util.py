@@ -26,5 +26,8 @@ def save_result(tweets, filepath = "results.csv"):
         file.write("Usuario\tFecha\tTexto\n")
         
         for tweet in tweets:
-            line = "%s\t%s\t%s\n" % (tweet.user.screen_name, tweet.created_at, tweet.text)
+            line = "%s\t%s\t%s\n" % (tweet.user.screen_name,
+                weet.created_at, 
+                tweet.text)
+            
             file.write(line)

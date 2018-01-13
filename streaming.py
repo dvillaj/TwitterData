@@ -13,11 +13,10 @@ if __name__ == '__main__':
     myStream = tweepy.Stream(auth=api.auth, listener=myStreamListener)
 
     #print(">> Listening to tweets about #python:")
-    #myStream.filter(track=['python'])
+    #myStream.filter(track=['python', 'NoSQL'])
 
     # LOCATIONS. Use http://boundingbox.klokantech.com/ for boundingboxes
     SPAIN_GEOBOX = [-9.38,36.05,3.35,43.75]
     myStream.filter(languages=["es"], locations=SPAIN_GEOBOX)
-
 
     print("c'est fini!")
