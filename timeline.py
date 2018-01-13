@@ -1,6 +1,6 @@
 import tweepy
 import pprintpp
-from util import *
+from comun.util import *
 
 if __name__ == '__main__':
 

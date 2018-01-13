@@ -1,6 +1,6 @@
 import tweepy
 from prettytable import PrettyTable
-from secret import consumer_key, consumer_secret, access_token, access_token_secret
+from comun.secret import consumer_key, consumer_secret, access_token, access_token_secret
 
 def get_auth():
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)

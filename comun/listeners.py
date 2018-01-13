@@ -10,7 +10,7 @@ class MyStreamListener(tweepy.StreamListener):
             print(decoded['text'])
 
             # Append to file
-            with codecs.open("tweets_json.txt", "a", "utf-8") as myfile:
+            with codecs.open("data/tweets_json.txt", "a", "utf-8") as myfile:
                 myfile.write(data)
                 myfile.write("\n")
 

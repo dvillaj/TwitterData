@@ -1,5 +1,5 @@
 import tweepy
-from util import *
+from comun.util import *
 
 if __name__ == '__main__':
 

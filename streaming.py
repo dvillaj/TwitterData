@@ -1,7 +1,7 @@
 import tweepy
 
-from util import *
-from listeners import *
+from comun.util import *
+from comun.listeners import *
 
 if __name__ == '__main__':
     print("===== My Application =====")
