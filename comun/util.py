@@ -1,6 +1,7 @@
 import tweepy
 from prettytable import PrettyTable
 from comun.secret import consumer_key, consumer_secret, access_token, access_token_secret
+import os
 
 def get_auth():
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
@@ -23,11 +24,12 @@ def save_result(tweets, filepath = "results.csv"):
 
     with open("data/" + filepath, 'w') as file:
 
-        file.write("Usuario\tFecha\tTexto\n")
+        file.write("Usuario|Fecha|Texto" + os.linesep)
         
         for tweet in tweets:
-            line = "%s\t%s\t%s\n" % (tweet.user.screen_name,
-                weet.created_at, 
-                tweet.text)
+            line = "%s|%s|%s" % (tweet.user.screen_name,
+                tweet.created_at, 
+                tweet.text.replace("\n", " "))
             
             file.write(line)
+            file.write(os.linesep)
