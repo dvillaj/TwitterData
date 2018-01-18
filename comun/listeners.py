@@ -1,6 +1,7 @@
 import json
 import codecs
 import tweepy
+import os
 
 class MyStreamListener(tweepy.StreamListener):
 
@@ -11,8 +12,8 @@ class MyStreamListener(tweepy.StreamListener):
 
             # Append to file
             with codecs.open("data/tweets_json.txt", "a", "utf-8") as myfile:
-                myfile.write(data)
-                myfile.write("\n")
+                myfile.write(data.replace('\n', ''))
+                myfile.write(os.linesep)
 
         except Exception as e:
             print("ERROR: {}".format(e))
