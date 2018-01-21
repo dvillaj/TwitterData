@@ -22,6 +22,9 @@ def print_result(tweets, size = 20):
 
 def save_result(tweets, filepath = "results.csv"):
 
+    if not os.path.exists("data"):
+        os.makedirs("data")
+
     with open("data/" + filepath, 'w') as file:
 
         file.write("Usuario|Fecha|Texto" + os.linesep)
@@ -31,5 +34,5 @@ def save_result(tweets, filepath = "results.csv"):
                 tweet.created_at, 
                 tweet.text.replace("\n", " "))
             
-            file.write(line)
+            file.write(line.encode('utf-8'))
             file.write(os.linesep)
