@@ -6,7 +6,7 @@ if __name__ == '__main__':
 
     api = tweepy.API(get_auth())
 
-    name = 'NoSQLDigest'
+    name = 'MSMK_'
 
     c = tweepy.Cursor(api.user_timeline,id=name).items()    
     timeline_results = []
@@ -21,3 +21,4 @@ if __name__ == '__main__':
 
     print("Timeline cursor = %i" % len(timeline_results))
     print_result(timeline_results)
+    save_result_json(timeline_results, "msmk.json")
