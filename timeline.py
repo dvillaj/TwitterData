@@ -12,5 +12,7 @@ if __name__ == '__main__':
     print("Timeline = %i" % len(timeline_results))
     print_result(timeline_results)
 
+    save_result_json(timeline_results, "NoSQLDigest.json")
+    
     #tweet = timeline_results[0]
     #pprintpp.pprint(tweet._json)
