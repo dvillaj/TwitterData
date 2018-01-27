@@ -48,3 +48,9 @@ def save_result_json(tweets, filepath = "results.json"):
             file.write(json.dumps(tweet._json))
             file.write(os.linesep)
 
+def save_json(str_json, filepath = "results.json"):
+
+    mkdir("data")
+    with open("data/" + filepath, 'a') as file:
+        json.dump(str_json, file)
+        file.write(os.linesep)
